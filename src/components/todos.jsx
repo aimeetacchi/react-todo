@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Todo from '../components/todo';
 
 export default class todos extends Component {
   render() {
@@ -9,7 +8,9 @@ export default class todos extends Component {
           {this.props.todo.todos.length === 0 ? <p>List is empty try adding a todo</p> : <ul>
         {
             this.props.todo.todos.map((todo, i) => (
-                <Todo removeToDo={this.props.removeToDo} key={i} item={todo} index={i}/>
+                <li key={i}>
+                  {todo} <button onClick={()=> this.props.removeToDo(i)}><i className="fas fa-trash-alt"></i></button>
+                </li>
             ))
            
         }

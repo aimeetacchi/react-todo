@@ -12,13 +12,14 @@ export default class form extends Component {
 
 
     // REMOVE ITEM
-    removeToDo = (index, item) => {
-        console.log(`index: ${index},todo ${item}`)
-        // filter through the todos and remove the one passed into the function...
-        const updatedtodos = this.state.todos.filter((todo)=> {
-             return todo !== item;
+    removeToDo = (index) => {
+        
+        //filter through the todos and remove the one passed into the function...
+        const updatedtodos = this.state.todos.filter((todo,i)=> {
+            return (i !== index);
         })
         //log the newly filtered array without the removed item
+        console.log(updatedtodos)
         this.setState({todos: updatedtodos});
     }
     
@@ -42,7 +43,7 @@ export default class form extends Component {
       <div>
           <form onSubmit={this.handleSubmit}>
             <div className="formgroup">
-                <label>Add todo</label>
+                <label>Add todo <i className="fas fa-plus"></i></label>
                 <input
                     type="text"
                     placeholder="enter task"

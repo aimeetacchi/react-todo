@@ -1,0 +1,108 @@
+$color1: #1a181b;
+$color2: #3e8989;
+$color3: #533965;
+$color4: #28536b;
+$color5: #008080;
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700');
+
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color1;
+  color: $color2;
+  font-family: 'Work Sans', sans-serif;
+}
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: $color2;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:$color1;
+  position: relative;
+  
+  h1 {
+    font-size: 52px;
+  }
+}
+
+
+ul {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  color: #fff;;
+  padding: 0;
+}
+
+li {
+  padding: 1em;
+  background-color:$color4;
+}
+li:nth-child(even){
+  background-color: $color3;
+}
+form {
+  margin: 0 auto;
+  padding: 1em;
+  display:flex;
+  width:100%;
+  max-width: 800px;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    width:100%;
+    display:block;
+    padding: 20px 0;
+    font-size: 20px;
+  }
+
+  input {
+    background-color: $color4;
+    font-size: 25px;
+    width:100%;
+    padding: 0;
+    margin: 0;
+    height: 70px;
+  }
+  
+  .btn {
+    border:0;
+    background-color:$color4;
+    font-size: 16px;
+    color: white;
+  }
+}
+
+
+button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: $color1;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 50%;
+  font-weight: 700;
+  transition: all .5s ease-out;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+}
