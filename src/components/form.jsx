@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from '../components/todos';
+const uuidv1 = require('uuid/v1');
 
 export default class form extends Component {
     constructor(props){
@@ -22,6 +23,18 @@ export default class form extends Component {
         console.log(updatedtodos)
         this.setState({todos: updatedtodos});
     }
+
+    // UPDATE ITEM
+    completeToDo = (id) => {
+        const todo = this.state.todos.filter((todo)=> {
+            if(todo.id === id){
+                todo.complete = !todo.complete;
+            }
+            return todo;
+        })
+        this.setState({todos: todo});
+       
+    }
     
     // ADD ITEM
     handleSubmit = (e) => { 
@@ -30,8 +43,8 @@ export default class form extends Component {
         //console.log(this.refs.item.value)
 
         this.setState({
-            // spread operator adds new value to exsitiing  array.
-            todos: [...this.state.todos, this.refs.item.value]
+            // spread operator adds new object to exsitiing array.
+            todos: [...this.state.todos, {item: this.refs.item.value, complete: false, edit: false, id: uuidv1() }]
         });
         this.refs.item.value = ""
     }
@@ -53,7 +66,7 @@ export default class form extends Component {
             </div>
             <input type="submit" className="btn" value="Add Todo"/>
             </form>
-            <Todos removeToDo={this.removeToDo} todo={this.state}/>
+            <Todos completeToDo={this.completeToDo} removeToDo={this.removeToDo} todo={this.state}/>
       </div>
     )
   }

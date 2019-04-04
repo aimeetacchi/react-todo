@@ -90,6 +90,9 @@ form {
   }
 }
 
+.completed {
+  text-decoration: line-through;
+}
 
 button {
   width: 30px;
@@ -100,9 +103,20 @@ button {
   font-size: 14px;
   border-radius: 50%;
   font-weight: 700;
-  transition: all .5s ease-out;
+  margin: 0 5px;
 
-  &:hover {
-    transform: rotate(180deg);
+  .fa-trash-alt {
+    color: rgb(210, 63, 63);
+    transition: all .5s ease-out;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  .fa-check-circle {
+    color: rgb(12, 167, 69);
+    &:hover {
+      transform: rotate(0deg);
+    }
   }
 }
