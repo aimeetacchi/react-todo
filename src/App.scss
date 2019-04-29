@@ -120,6 +120,7 @@ form {
 .editItemForm {
   border: 1px solid red;
   width:100%;
+  flex-direction: row;
 
   input {
     border:1px solid;

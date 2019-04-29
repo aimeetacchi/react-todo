@@ -13,18 +13,20 @@ export default class todos extends Component {
     
                 <li key={i} className={this.props.data.todos[i].complete ? 'completed' : ''}>
                   
-                  <span className={'item ' + (this.props.data.todos[i].edit ? 'hide' : 'show')}>{todo.item}</span>
-                  
-                  <form className={'editItemForm ' + (this.props.data.todos[i].edit ? 'show' : 'hide')} onSubmit={this.props.handleUpdate}>
-                    <input ref="updateitem"  text="text" value={this.props.data.todos[i].item} />
-                    <input type="submit" className="btn" value="Edit Todo"/>
-                  </form>
+
+                    {this.props.data.todos[i].edit ?
+                    
+                    <form className="editItemForm" onSubmit={this.props.handleUpdate}>
+                      <input ref="updateitem"  text="text" value={this.props.data.todos[i].item} />
+                      <input type="submit" className="btn" value="Edit Todo"/>
+                    </form> : <span className={'item ' + (this.props.data.todos[i].edit ? 'hide' : 'show')}>{todo.item}</span>}
+
                   
                   <div className="buttons">
 
                     {/* EDIT TODO */}
                     <button onClick={
-                      () => this.props.editToDo(todo.id)}>                        {this.props.data.todos[i].edit ? <i class="fas fa-times"></i> : <i className="far fa-edit"></i>}
+                      () => this.props.editToDo(todo.id)}>                        {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
                     </button>
 
                     {/* COMPLETE TODO */}
