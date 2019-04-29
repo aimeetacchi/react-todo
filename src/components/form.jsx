@@ -11,10 +11,36 @@ export default class form extends Component {
         }
     }
 
+    // EDIT ITEM =====
+    editToDo = (id) => {
+        const todo = this.state.todos.filter((todo)=> {
+            if(todo.id === id){
+                todo.edit = !todo.edit;
+            }
+            return todo;
+        })
+        this.setState({todos: todo}); 
+    }
 
-    // REMOVE ITEM
+    // UPDATE ITEM =====
+    handleUpdate = (e) => { 
+        e.preventDefault()
+        console.log(this.refs.item.value)
+    }
+
+      // DONE ITEM ====
+    completeToDo = (id) => {
+        const todo = this.state.todos.filter((todo)=> {
+            if(todo.id === id){
+                todo.complete = !todo.complete;
+            }
+            return todo;
+        })
+        this.setState({todos: todo});  
+    }
+
+    // DELETE ITEM
     removeToDo = (index) => {
-        
         //filter through the todos and remove the one passed into the function...
         const updatedtodos = this.state.todos.filter((todo,i)=> {
             return (i !== index);
@@ -24,19 +50,8 @@ export default class form extends Component {
         this.setState({todos: updatedtodos});
     }
 
-    // UPDATE ITEM
-    completeToDo = (id) => {
-        const todo = this.state.todos.filter((todo)=> {
-            if(todo.id === id){
-                todo.complete = !todo.complete;
-            }
-            return todo;
-        })
-        this.setState({todos: todo});
-       
-    }
-    
-    // ADD ITEM
+  
+    // CREATE ITEM =====
     handleSubmit = (e) => { 
         e.preventDefault()
         this.setState({submitted: true})
@@ -66,7 +81,7 @@ export default class form extends Component {
             </div>
             <input type="submit" className="btn" value="Add Todo"/>
             </form>
-            <Todos completeToDo={this.completeToDo} removeToDo={this.removeToDo} todo={this.state}/>
+            <Todos completeToDo={this.completeToDo} editToDo={this.editToDo} handleUpdate={this.editToDo} removeToDo={this.removeToDo} data={this.state}/>
       </div>
     )
   }

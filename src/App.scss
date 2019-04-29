@@ -1,8 +1,4 @@
-$color1: #1a181b;
-$color2: #3e8989;
-$color3: #533965;
-$color4: #28536b;
-$color5: #008080;
+@import './scss/vars';
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700');
 
@@ -15,8 +11,9 @@ html {
 }
 
 body {
+  margin: 0;
   background-color: $color1;
-  color: $color2;
+  color: $dark;
   font-family: 'Work Sans', sans-serif;
 }
 .App {
@@ -25,14 +22,11 @@ body {
 
 .App-header {
   background-color: $color2;
-  min-height: 30vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color:$color1;
-  position: relative;
   
   h1 {
     font-size: 52px;
@@ -41,21 +35,43 @@ body {
 
 
 ul {
-  display: block;
+  display: flex;
+  flex-wrap:wrap;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   list-style: none;
-  color: #fff;;
+  color: $dark;;
   padding: 0;
 }
 
 li {
   padding: 1em;
+  display:flex;
+  width:100%;
   background-color:$color4;
+
+  span {
+    width:50%;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .buttons {
+    width:50%;
+    justify-self: flex-end;
+  }
 }
+
 li:nth-child(even){
   background-color: $color3;
+}
+
+.buttons {
+  width:50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 form {
   margin: 0 auto;
@@ -75,16 +91,16 @@ form {
 
   input {
     background-color: $color4;
-    font-size: 25px;
-    width:100%;
-    padding: 0;
+    font-size: 20px;
+    width: 100%;
+    padding: 0 12px;
     margin: 0;
     height: 70px;
   }
   
   .btn {
     border:0;
-    background-color:$color4;
+    background-color:$dark;
     font-size: 16px;
     color: white;
   }
@@ -94,12 +110,33 @@ form {
   text-decoration: line-through;
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+}
+
+.editItemForm {
+  border: 1px solid red;
+  width:100%;
+
+  input {
+    border:1px solid;
+    height: auto;
+    width:100%;
+  }
+}
+
+.item {
+  width: 50%;
+}
+
 button {
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  background-color: $color1;
-  color: #fff;
+  border: 1px solid $dark;
+  background-color: $dark;
   font-size: 14px;
   border-radius: 50%;
   font-weight: 700;
@@ -118,5 +155,16 @@ button {
     &:hover {
       transform: rotate(0deg);
     }
+  }
+
+  .fa-edit {
+    color:  rgb(28, 105, 187);
+  }
+
+  .fa-save {
+    color: rgb(12, 167, 69);
+  }
+  .fa-times {
+    color: rgb(210, 63, 63);
   }
 }
