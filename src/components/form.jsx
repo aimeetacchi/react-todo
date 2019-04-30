@@ -51,7 +51,10 @@ export default class form extends Component {
             }
             return todo;
         })
-        this.setState({todos: todo});  
+        this.setState({todos: todo});
+
+        // updating localStorage
+        this.addLocalStorage(todo);
     }
 
     // DELETE ITEM
@@ -63,6 +66,8 @@ export default class form extends Component {
         //log the newly filtered array without the removed item
         console.log(updatedtodos)
         this.setState({todos: updatedtodos});
+
+        this.addLocalStorage(updatedtodos);
     }
     
     //Add to local storage function
