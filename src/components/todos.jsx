@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 
 export default class todos extends Component {
-  
+
+  constructor(props){
+    super(props)
+
+    this.itemInput = React.createRef();
+  }
+
+   // UPDATE ITEM =====
+   handleUpdate = e => { 
+    e.preventDefault();
+    //console.log(this.itemInput.current.value)
+    
+    this.props.updateItem(this.itemInput.current.value);
+}
+
   render() {
-  
     return (
       <div>
           <h2>Your Todos</h2>
@@ -16,21 +29,25 @@ export default class todos extends Component {
                     {/* Checking if you clicked Edit, shows the item added or a edit form */}
                     {this.props.data.todos[i].edit ?
                     
-                    <form className="editItemForm" onSubmit={this.props.handleUpdate}>
-                      <input ref="updateitem"  text="text" value={this.props.data.todos[i].item} />
-                      <input type="submit" className="btn" value="Edit Todo"/>
+                    <form className="editItemForm" onSubmit={this.handleUpdate}>
+                        <input
+                        ref={this.itemInput}
+                        text="text"
+                        defaultValue={this.props.data.todos[i].item} />
+                        <input
+                        type="submit"
+                        className="btn"
+                        value="Update"/>
                     </form> : <span className={'item ' + (this.props.data.todos[i].edit ? 'hide' : 'show')}>{todo.item}</span>}
 
                   
                   <div className="buttons">
                     
 
-                    
-
                     {/* EDIT TODO */}
-                    {/* <button onClick={
+                    <button onClick={
                       () => this.props.editToDo(todo.id)}>                        {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
-                    </button> */}
+                    </button>
 
 
 

@@ -11,6 +11,8 @@ export default class form extends Component {
             todos: [],
             submitted: false,
         }
+
+
     }
 
     componentDidMount(){
@@ -27,24 +29,24 @@ export default class form extends Component {
     }
 
     // EDIT ITEM =====
-    // editToDo = (id) => {
-    //     const todo = this.state.todos.filter((todo)=> {
-    //         if(todo.id === id){
-    //             todo.edit = !todo.edit;
-    //         }
-    //         return todo;
-    //     })
-    //     this.setState({todos: todo}); 
-    // }
+    editToDo = (id) => {
+        const todo = this.state.todos.filter((todo)=> {
+            if(todo.id === id){
+                // toggle from false/true
+                todo.edit = !todo.edit;
+            }
+            return todo;
+        })
+        this.setState({todos: todo}); 
+    }
 
-    // // UPDATE ITEM =====
-    // handleUpdate = (e) => { 
-    //     e.preventDefault()
-    //     console.log(this.refs.item.value)
-    // }
+    updateItem = (val) => {
+        console.log(val)
+        // update the state with the ammended val.
+    }
 
       // DONE ITEM ====
-    completeToDo = (id) => {
+    completeToDo = id => {
         const todo = this.state.todos.filter((todo)=> {
             if(todo.id === id){
                 todo.complete = !todo.complete;
@@ -58,7 +60,7 @@ export default class form extends Component {
     }
 
     // DELETE ITEM
-    removeToDo = (index) => {
+    removeToDo = index => {
         //filter through the todos and remove the one passed into the function...
         const updatedtodos = this.state.todos.filter((todo,i)=> {
             return (i !== index);
@@ -120,7 +122,7 @@ export default class form extends Component {
             </div>
             <input type="submit" className="btn" value="Add Todo"/>
             </form>
-            <Todos completeToDo={this.completeToDo} editToDo={this.editToDo} handleUpdate={this.editToDo} removeToDo={this.removeToDo} data={this.state}/>
+            <Todos completeToDo={this.completeToDo} updateItem={this.updateItem} editToDo={this.editToDo} removeToDo={this.removeToDo} data={this.state}/>
       </div>
     )
   }

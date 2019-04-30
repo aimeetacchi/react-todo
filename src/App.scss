@@ -1,4 +1,5 @@
 @import './scss/vars';
+@import './scss/form';
 
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700');
 
@@ -112,21 +113,6 @@ form {
 
 .hide {
   display: none;
-}
-
-.show {
-}
-
-.editItemForm {
-  border: 1px solid red;
-  width:100%;
-  flex-direction: row;
-
-  input {
-    border:1px solid;
-    height: auto;
-    width:100%;
-  }
 }
 
 .item {
