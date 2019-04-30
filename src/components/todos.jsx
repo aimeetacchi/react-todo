@@ -23,11 +23,17 @@ export default class todos extends Component {
 
                   
                   <div className="buttons">
+                    
+
+                    
 
                     {/* EDIT TODO */}
-                    <button onClick={
+                    {/* <button onClick={
                       () => this.props.editToDo(todo.id)}>                        {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
-                    </button>
+                    </button> */}
+
+
+
 
                     {/* COMPLETE TODO */}
                     <button className={this.props.data.todos[i].edit ? 'hide' : 'show'} onClick={()=> this.props.completeToDo(todo.id)}>

@@ -27,21 +27,21 @@ export default class form extends Component {
     }
 
     // EDIT ITEM =====
-    editToDo = (id) => {
-        const todo = this.state.todos.filter((todo)=> {
-            if(todo.id === id){
-                todo.edit = !todo.edit;
-            }
-            return todo;
-        })
-        this.setState({todos: todo}); 
-    }
+    // editToDo = (id) => {
+    //     const todo = this.state.todos.filter((todo)=> {
+    //         if(todo.id === id){
+    //             todo.edit = !todo.edit;
+    //         }
+    //         return todo;
+    //     })
+    //     this.setState({todos: todo}); 
+    // }
 
-    // UPDATE ITEM =====
-    handleUpdate = (e) => { 
-        e.preventDefault()
-        console.log(this.refs.item.value)
-    }
+    // // UPDATE ITEM =====
+    // handleUpdate = (e) => { 
+    //     e.preventDefault()
+    //     console.log(this.refs.item.value)
+    // }
 
       // DONE ITEM ====
     completeToDo = (id) => {
