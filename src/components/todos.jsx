@@ -13,7 +13,7 @@ export default class todos extends Component {
     
                 <li key={i} className={this.props.data.todos[i].complete ? 'completed' : ''}>
                   
-
+                    {/* Checking if you clicked Edit, shows the item added or a edit form */}
                     {this.props.data.todos[i].edit ?
                     
                     <form className="editItemForm" onSubmit={this.props.handleUpdate}>
