@@ -4,15 +4,13 @@ const uuidv1 = require('uuid/v1');
 
 let existingtodos;
 
-export default class form extends Component {
+export default class Form extends Component {
     constructor(props){
         super(props)
         this.state = {
             todos: [],
             submitted: false,
         }
-
-
     }
 
     componentDidMount(){
@@ -43,6 +41,13 @@ export default class form extends Component {
     updateItem = (val) => {
         console.log(val)
         // update the state with the ammended val.
+
+
+
+        // update localstorage again with new state... 
+
+
+
     }
 
       // DONE ITEM ====
@@ -106,11 +111,10 @@ export default class form extends Component {
     }
 
 
-
   render() {
     return (
       <div>
-          <form onSubmit={this.handleSubmit}>
+          <form className="addtodo" onSubmit={this.handleSubmit}>
             <div className="formgroup">
                 <label>Add todo <i className="fas fa-plus"></i></label>
                 <input
@@ -122,6 +126,7 @@ export default class form extends Component {
             </div>
             <input type="submit" className="btn" value="Add Todo"/>
             </form>
+
             <Todos completeToDo={this.completeToDo} updateItem={this.updateItem} editToDo={this.editToDo} removeToDo={this.removeToDo} data={this.state}/>
       </div>
     )

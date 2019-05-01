@@ -24,7 +24,7 @@ export default class todos extends Component {
         {
             this.props.data.todos.map((todo, i) => (
     
-                <li key={i} className={this.props.data.todos[i].complete ? 'completed' : ''}>
+                <li key={i} >
                   
                     {/* Checking if you clicked Edit, shows the item added or a edit form */}
                     {this.props.data.todos[i].edit ?
@@ -38,7 +38,13 @@ export default class todos extends Component {
                         type="submit"
                         className="btn"
                         value="Update"/>
-                    </form> : <span className={'item ' + (this.props.data.todos[i].edit ? 'hide' : 'show')}>{todo.item}</span>}
+                    </form> 
+                    : <div className={'item ' + (this.props.data.todos[i].complete ? 'completed' : '')}>
+                          <span className={this.props.data.todos[i].edit ? 'hide' : 'show'}>
+                            {todo.item}
+                          </span>
+                        </div>
+                    }
 
                   
                   <div className="buttons">
@@ -46,7 +52,8 @@ export default class todos extends Component {
 
                     {/* EDIT TODO */}
                     <button onClick={
-                      () => this.props.editToDo(todo.id)}>                        {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
+                      () => this.props.editToDo(todo.id)}>
+                      {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
                     </button>
 
 

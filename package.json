@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.9.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
@@ -11,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -24,6 +25,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme-adapter-react-16": "^1.12.1",
+    "react-test-renderer": "^16.8.6",
     "uuid": "^3.3.2"
   }
 }
