@@ -6,14 +6,18 @@ export default class todos extends Component {
     super(props)
 
     this.itemInput = React.createRef();
+
   }
 
    // UPDATE ITEM =====
    handleUpdate = e => { 
     e.preventDefault();
-    //console.log(this.itemInput.current.value)
-    
-    this.props.updateItem(this.itemInput.current.value);
+    // calling the updateItem function and passing in the new input value,
+      let newdata = {
+        item: this.itemInput.current.value,
+    }
+
+    this.props.updateItem(newdata);
 }
 
   render() {
@@ -55,9 +59,6 @@ export default class todos extends Component {
                       () => this.props.editToDo(todo.id)}>
                       {this.props.data.todos[i].edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
                     </button>
-
-
-
 
                     {/* COMPLETE TODO */}
                     <button className={this.props.data.todos[i].edit ? 'hide' : 'show'} onClick={()=> this.props.completeToDo(todo.id)}>

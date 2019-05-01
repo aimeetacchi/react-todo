@@ -38,8 +38,8 @@ export default class Form extends Component {
         this.setState({todos: todo}); 
     }
 
-    updateItem = (val) => {
-        console.log(val)
+    updateItem = (newdata) => {
+        console.log(newdata)
         // update the state with the ammended val.
 
 
