@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Todos from '../components/todos';
+import Todo from './todo';
+
 const uuidv1 = require('uuid/v1');
 
 let existingtodos;
@@ -65,15 +66,14 @@ export default class Form extends Component {
     }
 
     // DELETE ITEM
-    removeToDo = index => {
+    removeToDo = id => {
         //filter through the todos and remove the one passed into the function...
-        const updatedtodos = this.state.todos.filter((todo,i)=> {
-            return (i !== index);
-        })
-        //log the newly filtered array without the removed item
-        console.log(updatedtodos)
+        const updatedtodos = this.state.todos.filter(todo => todo.id !== id)
+        
+        //set new updated todo with the removed one gone.
         this.setState({todos: updatedtodos});
 
+        // update local storage
         this.addLocalStorage(updatedtodos);
     }
     
@@ -127,7 +127,23 @@ export default class Form extends Component {
             <input type="submit" className="btn" value="Add Todo"/>
             </form>
 
-            <Todos completeToDo={this.completeToDo} updateItem={this.updateItem} editToDo={this.editToDo} removeToDo={this.removeToDo} data={this.state}/>
+            
+            {/* ===== TODO LIST ====== */}
+            <div id="todo-list">
+                <h2>Your Todos</h2>
+                
+                {this.state.todos.length === 0 ? <p>List is empty try adding a todo</p> : 
+                <ul>{ this.state.todos.map((todo, i) => (
+                    
+                    // creating a todo Component for each new item, passing all functions
+                    <Todo key={i} completeToDo={this.completeToDo} updateItem={this.updateItem} editToDo={this.editToDo} removeToDo={this.removeToDo} todoObject={todo}/>
+
+                    ))
+                
+                }
+                </ul>}
+                
+            </div>
       </div>
     )
   }

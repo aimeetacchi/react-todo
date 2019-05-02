@@ -74,38 +74,6 @@ li:nth-child(even){
   justify-content: flex-end;
   align-items: center;
 }
-form {
-  margin: 0 auto;
-  padding: 1em;
-  display:flex;
-  width:100%;
-  max-width: 800px;
-  flex-direction: column;
-  justify-content: center;
-
-  label {
-    width:100%;
-    display:block;
-    padding: 20px 0;
-    font-size: 20px;
-  }
-
-  input {
-    background-color: $color4;
-    font-size: 20px;
-    width: 100%;
-    padding: 0 12px;
-    margin: 0;
-    height: 70px;
-  }
-  
-  .btn {
-    border:0;
-    background-color:$dark;
-    font-size: 16px;
-    color: white;
-  }
-}
 
 .completed {
   text-decoration: line-through;
@@ -117,6 +85,7 @@ form {
 
 .item {
   width: 50%;
+  text-align: left;
 }
 
 button {
