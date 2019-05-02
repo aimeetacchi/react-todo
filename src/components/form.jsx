@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './button';
 import Todo from './todo';
 
 const uuidv1 = require('uuid/v1');
@@ -169,7 +170,7 @@ export default class Form extends Component {
                 }
                 </ul>
                 <div className="clearAll">
-                    <button onClick={()=> this.removeAll()} className="clear">Clear All Todos</button>
+                    <Button name="Clear All Todos" func={this.removeAll} nameClass="clear" />
                 </div>
                 </React.Fragment>
                 }

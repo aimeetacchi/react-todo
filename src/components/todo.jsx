@@ -68,8 +68,9 @@ import React, { Component } from 'react';
       
       <div className="buttons">
         
-
+        
         {/* EDIT TODO */}
+        
         <button onClick={
           () => this.props.editToDo(id)}>
           {edit ? <i className="fas fa-times"></i> : <i className="far fa-edit"></i>}
