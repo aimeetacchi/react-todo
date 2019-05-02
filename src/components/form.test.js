@@ -10,4 +10,9 @@ describe('Form', ()=> {
         //console.log(form.debug());
         expect(form.hasClass('addtodo'))
     })
+
+    it('renders the clear button', () => {
+        //console.log(form.debug());
+        expect(form.find('p').text()).toEqual('List is empty try adding a todo')
+    })
 });
