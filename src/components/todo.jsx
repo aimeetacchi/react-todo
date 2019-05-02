@@ -82,9 +82,9 @@ import React, { Component } from 'react';
         </button>
 
         {/* DELETE TODO */}
-        {/* <button onClick={()=> this.props.removeToDo(id, item)} className={edit ? 'hide' : 'show'}>
+        <button onClick={()=> this.props.removeToDo(id)} className={edit ? 'hide' : 'show'}>
           <i className="fas fa-trash-alt"></i>
-        </button> */}
+        </button>
       </div>
 
     </li>

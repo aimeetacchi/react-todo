@@ -73,20 +73,20 @@ export default class Form extends Component {
     }
 
     // DELETE ITEM =====
-    // removeToDo = (id, item) => {
-    //     console.log(item)
-    //     // console.log(id);
-    //     //filter through the todos and remove the one passed into the function...
-    //     const updatedtodos = this.state.todos.filter(todo => {
-    //         todo.item !== item
-    //     })
+    removeToDo = (id) => {
+        console.log(id)
+       
+        //filter through the todos and remove the one passed into the function...
+        // const updatedtodos = this.state.todos.filter(todo => {
+        //     todo.item !== item
+        // })
         
-    //     //set new updated todo with the removed one gone.
-    //     this.setState({todos: updatedtodos});
+        // //set new updated todo with the removed one gone.
+        // this.setState({todos: updatedtodos});
 
-    //     // update local storage
-    //     this.addLocalStorage(updatedtodos);
-    // }
+        // // update local storage
+        // this.addLocalStorage(updatedtodos);
+    }
     
     //Add to local storage function
     addLocalStorage = (arr) => {
@@ -162,7 +162,7 @@ export default class Form extends Component {
                         completeToDo={this.completeToDo}
                         updateItem={this.updateItem}
                         editToDo={this.editToDo}
-                        //removeToDo={this.removeToDo}
+                        removeToDo={this.removeToDo}
                         todoObject={todo}
                     />
                     ))
