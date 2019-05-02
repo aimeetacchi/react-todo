@@ -88,8 +88,17 @@ export default class Form extends Component {
     // }
     
     //Add to local storage function
-    addLocalStorage(arr){
+    addLocalStorage = (arr) => {
         localStorage.setItem('todos', JSON.stringify(arr));
+    }
+
+    // DELETES EVERYTHING IN STATE AND LOCALSTORAGE ===
+    removeAll = () => {
+        this.setState({
+            todos: [],
+            submitted: false,
+        })
+        localStorage.clear();
     }
 
     // CREATE ITEM =====
@@ -143,6 +152,7 @@ export default class Form extends Component {
                 <h2>Your Todos</h2>
                 
                 {this.state.todos.length === 0 ? <p>List is empty try adding a todo</p> : 
+                <React.Fragment>
                 <ul>{ this.state.todos.map((todo, i) => (
                     
                     // creating a todo Component for each new item, passing all functions
@@ -157,7 +167,12 @@ export default class Form extends Component {
                     ))
                 
                 }
-                </ul>}
+                </ul>
+                <div className="clearAll">
+                    <button onClick={()=> this.removeAll()} className="clear">Clear All Todos</button>
+                </div>
+                </React.Fragment>
+                }
                 
             </div>
       </div>
