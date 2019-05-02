@@ -13,7 +13,7 @@ html {
 
 body {
   margin: 0;
-  background-color: $color1;
+  background-color: $light;
   color: $dark;
   font-family: 'Work Sans', sans-serif;
 }
@@ -22,7 +22,7 @@ body {
 }
 
 .App-header {
-  background-color: $color2;
+  background-color: $light;
   min-height: 20vh;
   display: flex;
   flex-direction: column;

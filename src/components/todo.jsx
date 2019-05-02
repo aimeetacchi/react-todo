@@ -1,31 +1,58 @@
 import React, { Component } from 'react';
 
  class Todo extends Component {
+    constructor(props){
+        super(props)
 
+        this.state = {
+            
+        }
+    }
+
+    componentDidMount(){
+        this.setState({newitem: this.props.todoObject.item})
+    }
+
+
+    onValueChange = (e) => {
+        this.setState({newitem: e.target.value});
+    }
 
     // UPDATE ITEM =====
     handleUpdate = e => { 
         e.preventDefault();
-        // calling the updateItem function and passing in the new input value,
+        
+        const {id, complete, edit } = this.props.todoObject;
 
-        //this.props.updateItem(newdata);
+        let updateObject = {
+            item: this.state.newitem,
+            id,
+            complete,
+            edit,
+        }
+        // calling the updateItem function and passing in the new input value,
+        this.props.updateItem(updateObject);
     }
 
 
   render() {
 
     // destructuring values from object.
-    const {item, complete, edit, id} = this.props.todoObject;
+    const {complete, edit, id, item} = this.props.todoObject;
     return (
         <li key={id} >      
         {/* Checking if you clicked Edit, shows the item added or a edit form */}
         {edit ?
         
-        <form className="editItemForm" /*onSubmit={this.handleUpdate}*/>
+        <form className="editItemForm" onSubmit={this.handleUpdate}>
+            
             <input
-            // ref={this.itemInput}
+            name="item"
+            onChange={this.onValueChange}
+            value={this.state.newitem}
             text="text"
-            defaultValue={item} />
+             />
+
             <input
             type="submit"
             className="btn"
@@ -33,7 +60,7 @@ import React, { Component } from 'react';
         </form> 
         : <div className={'item ' + (complete ? 'completed' : '')}>
               <span className={edit ? 'hide' : 'show'}>
-                {item}
+                {this.state.newitem}
               </span>
             </div>
         }
@@ -54,9 +81,9 @@ import React, { Component } from 'react';
         </button>
 
         {/* DELETE TODO */}
-        <button onClick={()=> this.props.removeToDo(id)} className={edit ? 'hide' : 'show'}>
+        {/* <button onClick={()=> this.props.removeToDo(id, item)} className={edit ? 'hide' : 'show'}>
           <i className="fas fa-trash-alt"></i>
-        </button>
+        </button> */}
       </div>
 
     </li>

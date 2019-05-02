@@ -39,20 +39,9 @@ export default class Form extends Component {
         this.setState({todos: todo}); 
     }
 
-    updateItem = (newdata) => {
-        console.log(newdata)
-        // update the state with the ammended val.
-
-
-
-        // update localstorage again with new state... 
-
-
-
-    }
-
       // DONE ITEM ====
     completeToDo = id => {
+       
         const todo = this.state.todos.filter((todo)=> {
             if(todo.id === id){
                 todo.complete = !todo.complete;
@@ -65,17 +54,38 @@ export default class Form extends Component {
         this.addLocalStorage(todo);
     }
 
-    // DELETE ITEM
-    removeToDo = id => {
-        //filter through the todos and remove the one passed into the function...
-        const updatedtodos = this.state.todos.filter(todo => todo.id !== id)
-        
-        //set new updated todo with the removed one gone.
-        this.setState({todos: updatedtodos});
+    updateItem = (data) => {
+       
+        const {item, id } = data;
+    
+        const newtodo = this.state.todos.map((todo)=> {
+            if(todo.id === id){
+               todo.item = item;
+               todo.edit = !todo.edit;
+            }
+            return todo;
+        })
+        this.setState({todos: newtodo});
 
-        // update local storage
-        this.addLocalStorage(updatedtodos);
+         // updating localStorage
+        this.addLocalStorage(newtodo);
     }
+
+    // DELETE ITEM =====
+    // removeToDo = (id, item) => {
+    //     console.log(item)
+    //     // console.log(id);
+    //     //filter through the todos and remove the one passed into the function...
+    //     const updatedtodos = this.state.todos.filter(todo => {
+    //         todo.item !== item
+    //     })
+        
+    //     //set new updated todo with the removed one gone.
+    //     this.setState({todos: updatedtodos});
+
+    //     // update local storage
+    //     this.addLocalStorage(updatedtodos);
+    // }
     
     //Add to local storage function
     addLocalStorage(arr){
@@ -136,8 +146,14 @@ export default class Form extends Component {
                 <ul>{ this.state.todos.map((todo, i) => (
                     
                     // creating a todo Component for each new item, passing all functions
-                    <Todo key={i} completeToDo={this.completeToDo} updateItem={this.updateItem} editToDo={this.editToDo} removeToDo={this.removeToDo} todoObject={todo}/>
-
+                    <Todo
+                        key={i}
+                        completeToDo={this.completeToDo}
+                        updateItem={this.updateItem}
+                        editToDo={this.editToDo}
+                        //removeToDo={this.removeToDo}
+                        todoObject={todo}
+                    />
                     ))
                 
                 }
