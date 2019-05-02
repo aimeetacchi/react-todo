@@ -74,18 +74,16 @@ export default class Form extends Component {
 
     // DELETE ITEM =====
     removeToDo = (id) => {
-        console.log(id)
-       
-        //filter through the todos and remove the one passed into the function...
-        // const updatedtodos = this.state.todos.filter(todo => {
-        //     todo.item !== item
-        // })
         
+        //filter through the todos and remove the one passed into the function...
+        const updatedtodos = this.state.todos.filter((todo, i) => id !== todo.id)
+        console.log(updatedtodos);
         // //set new updated todo with the removed one gone.
-        // this.setState({todos: updatedtodos});
+        this.setState({todos: updatedtodos});
 
-        // // update local storage
-        // this.addLocalStorage(updatedtodos);
+        // update local storage
+        //localStorage.clear();
+       //this.addLocalStorage(updatedtodos);
     }
     
     //Add to local storage function
