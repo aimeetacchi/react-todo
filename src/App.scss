@@ -13,8 +13,9 @@ html {
 
 body {
   margin: 0;
-  background-color: $light;
+  background-color: $dark;
   color: $dark;
+  font-size: 18px;
   font-family: 'Work Sans', sans-serif;
 }
 .App {
@@ -22,16 +23,17 @@ body {
 }
 
 .App-header {
-  background-color: $light;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 80%;
+  color: $light;
   margin: 0 auto;
   
   h1 {
+    color: $color3;
     font-size: 52px;
   }
 }
@@ -49,9 +51,13 @@ ul {
 }
 
 li {
-  padding: 1em;
+  color: $dark;
+  padding: 15px;
+  margin: 10px auto;
   display:flex;
-  width:100%;
+  align-items: center;
+  width:95%;
+  border-radius: 20px;
   background-color:$color4;
 
   span {
@@ -67,7 +73,8 @@ li {
 }
 
 li:nth-child(even){
-  background-color: $color3;
+  background-color: $color1;
+  color: $light;
 }
 
 .buttons {
@@ -93,7 +100,7 @@ li:nth-child(even){
 button {
   width: 30px;
   height: 30px;
-  border: 1px solid $dark;
+  border: 0;
   background-color: $dark;
   font-size: 14px;
   border-radius: 50%;
@@ -101,22 +108,33 @@ button {
   margin: 0 5px;
 
   .fa-trash-alt {
-    color: rgb(210, 63, 63);
+    color: #d23f3f;
     transition: all .5s ease-out;
     &:hover {
+      color: lighten(#d23f3f, 20%);
       transform: rotate(180deg);
     }
   }
 
   .fa-check-circle {
-    color: rgb(12, 167, 69);
+    color: #0ca745;
+    transition: all .5s ease-out;
     &:hover {
-      transform: rotate(0deg);
+      transform: rotate(0deg) scale(1.4);
+      color: lighten( #0ca745, 20%)
+    }
+    &:active {
+      transform: rotate(0deg) scale(1.8);
     }
   }
 
   .fa-edit {
-    color:  rgb(28, 105, 187);
+    color:  #1c69bb;
+    transition: all .5s ease-out;
+    &:hover {
+      transform: rotate(0deg) scale(1.1);
+      color: lighten(#1c69bb, 20%);
+    }
   }
 
   .fa-save {
@@ -127,10 +145,17 @@ button {
   }
 }
 
-button.clear {
-  margin-top: 1em;
-  border-radius: 20px;
-  width: 300px;
-  color: white;
-  background-color: $color3;
+.clearAll {
+  margin: 1em 0 2em 0;
+  button.clear {
+    border-radius: 20px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    background-color: $color3;
+    transition: all .5s ease-out;
+    &:hover {
+      background-color: darken($color3, 20%);
+    }
+  }
 }

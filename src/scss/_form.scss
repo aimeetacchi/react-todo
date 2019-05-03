@@ -1,7 +1,7 @@
 form.addtodo,
 form.editItemForm {
   margin: 0 auto;
-  padding: 1em;
+  padding: 0 10px;
   display:flex;
   width:100%;
   max-width: 800px;
@@ -15,18 +15,24 @@ form.editItemForm {
     font-size: 20px;
   }
 
-  input {
+  ::placeholder {
+    color: $light;
+  }
+
+  input[type=text] {
     background-color: $color4;
     font-size: 20px;
     width: 100%;
     padding: 0 12px;
     margin: 0;
     height: 70px;
+    border:0;
   }
   
   .btn {
     border:0;
-    background-color:$dark;
+    padding: 15px;
+    background-color:$color1;
     font-size: 16px;
     color: white;
   }
@@ -36,10 +42,19 @@ form.editItemForm {
     width:100%;
     flex-direction: row;
   
-    input {
+    input[type=text] {
       background-color: rgba(255, 255, 255, 0.5);
-      border:1px solid;
+      border:0;
+      padding: 0 20px;
       height: auto;
       width:100%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      
+    }
+    input[type=submit] {
+      background-color:$color2;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
   }

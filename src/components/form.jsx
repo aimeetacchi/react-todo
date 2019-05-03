@@ -137,7 +137,7 @@ export default class Form extends Component {
                 <label>Add todo <i className="fas fa-plus"></i></label>
                 <input
                     type="text"
-                    placeholder="enter task"
+                    placeholder="Enter task..."
                     ref="item"
                     required
                     />

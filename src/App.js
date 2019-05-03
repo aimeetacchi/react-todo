@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Your Todo List</h1>
-          <p>Do you have a list of things you need to do, well add them here and then you can go through them and tick them off</p>
+          <p>Do you need a todo list, well here you go fill this in</p>
         </header>
         <Form/>
       </div>

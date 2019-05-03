@@ -50,7 +50,7 @@ import React, { Component } from 'react';
             name="item"
             onChange={this.onValueChange}
             value={this.state.newitem}
-            text="text"
+            type="text"
              />
 
             <input
