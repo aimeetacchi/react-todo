@@ -156,7 +156,7 @@ export default class Form extends Component {
                     
                     // creating a todo Component for each new item, passing all functions
                     <Todo
-                        key={i}
+                        key={todo.id}
                         completeToDo={this.completeToDo}
                         updateItem={this.updateItem}
                         editToDo={this.editToDo}

@@ -40,7 +40,7 @@ import React, { Component } from 'react';
     // destructuring values from object.
     const {complete, edit, id} = this.props.todoObject;
     return (
-        <li key={id} >      
+        <li>      
         {/* Checking if you clicked Edit, shows the item added or a edit form */}
         {edit ?
         
