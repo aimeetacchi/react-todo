@@ -148,7 +148,7 @@ export default class Form extends Component {
             
             {/* ===== TODO LIST ====== */}
             <div id="todo-list">
-                <h2>Your Todos</h2>
+                <h2 style={{color: "white"}}>Your Todos</h2>
                 
                 {this.state.todos.length === 0 ? <p>List is empty try adding a todo</p> : 
                 <React.Fragment>
