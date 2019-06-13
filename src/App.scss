@@ -6,13 +6,15 @@
 *, *:after, *:before {
   box-sizing: inherit;
 }
-
+html, body {
+  height: 100%;
+  margin: 0;
+}
 html {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   background-color: $dark;
   color: $dark;
   font-size: 18px;
@@ -38,6 +40,15 @@ body {
   }
 }
 
+.wrapper {
+  min-height: 90vh;
+  margin-bottom: -50px;
+}
+#to-do-list {
+  p {
+    color: $light;
+  }
+}
 
 ul {
   display: flex;
@@ -158,4 +169,12 @@ button {
       background-color: darken($color3, 20%);
     }
   }
+}
+
+footer {
+  height: 10vh;
+  font-size: 12px;
+  padding: 2em 3em;
+  text-align: center;
+  color: white
 }

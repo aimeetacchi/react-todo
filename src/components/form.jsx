@@ -12,6 +12,7 @@ export default class Form extends Component {
         this.state = {
             todos: [],
             submitted: false,
+            value: ''
         }
     }
 
@@ -100,14 +101,18 @@ export default class Form extends Component {
         localStorage.clear();
     }
 
+    handleChange = (e) => {
+        
+        this.setState({value: e.target.value})
+      }
     // CREATE ITEM =====
-    handleSubmit = (e) => { 
+    handleSubmit = (e) => {
+        this.setState({submitted: true});
         e.preventDefault()
-        this.setState({submitted: true})
-        //console.log(this.refs.item.value)
+        console.log('to-do add been added!')
 
         let data = {
-            item: this.refs.item.value,
+            item: this.state.value,
             complete: false,
             edit: false,
             id: uuidv1()
@@ -125,7 +130,7 @@ export default class Form extends Component {
         //Add to local storage function
         this.addLocalStorage(existingtodos);
         
-        this.refs.item.value = ""
+        this.setState({value: ""})
     }
 
 
@@ -138,16 +143,17 @@ export default class Form extends Component {
                 <input
                     type="text"
                     placeholder="Enter task..."
-                    ref="item"
+                    value={this.state.value}
                     required
+                    onChange={this.handleChange}
                     />
             </div>
-            <input type="submit" className="btn" value="Add Todo"/>
+            <input type="submit" className="btn" value="Add Todo +"/>
             </form>
 
             
             {/* ===== TODO LIST ====== */}
-            <div id="todo-list">
+            <div id="to-do-list">
                 <h2 style={{color: "white"}}>Your Todos</h2>
                 
                 {this.state.todos.length === 0 ? <p>List is empty try adding a todo</p> : 
