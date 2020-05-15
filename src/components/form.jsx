@@ -88,15 +88,15 @@ export default class Form extends Component {
         
         
         // NEED TO CHECK THIS ----         
-        localStorage.setItem('data', JSON.stringify(updatedtodos));
+//         localStorage.setItem('data', JSON.stringify(updatedtodos));
          
-         if(updatedtodos == 0) {
-           localStorage.clear();
+//          if(updatedtodos == 0) {
+//            localStorage.clear();
            
-             this.setState({
-            submitted: false,
-            })
-        }
+//              this.setState({
+//             submitted: false,
+//             })
+//         }
           // --------
     }
     
