@@ -85,6 +85,19 @@ export default class Form extends Component {
         // update local storage
         //localStorage.clear();
        //this.addLocalStorage(updatedtodos);
+        
+        
+        // NEED TO CHECK THIS ----         
+        localStorage.setItem('data', JSON.stringify(updatedtodos));
+         
+         if(updatedtodos == 0) {
+           localStorage.clear();
+           
+             this.setState({
+            submitted: false,
+            })
+        }
+          // --------
     }
     
     //Add to local storage function
